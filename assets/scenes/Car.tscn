@@ -1,0 +1,96 @@
+[gd_scene load_steps=9 format=3 uid="uid://bjwdjyhyhor7n"]
+
+[ext_resource type="Script" path="res://assets/scripts/car_control.gd" id="1_43h40"]
+[ext_resource type="Texture2D" uid="uid://b74oecf3div6p" path="res://assets/cars/one_cars/car_tex.png" id="1_t23pg"]
+[ext_resource type="ArrayMesh" uid="uid://buwowks3k8tpr" path="res://assets/cars/one_cars/car.obj" id="2_03k8y"]
+[ext_resource type="Texture2D" uid="uid://ba3piixih3n3w" path="res://assets/cars/one_cars/K10_Trace_UTV_front.png" id="3_lgk0x"]
+[ext_resource type="ArrayMesh" uid="uid://bgg0ujvr2e8uh" path="res://assets/cars/one_cars/wheel.obj" id="4_gek4a"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_exvgv"]
+points = PackedVector3Array(0.618408, 0.319035, 0.934742, 0.598186, 0.448514, 0.790915, 0.598186, 0.40096, 1.47079, 0.611748, 0.333867, 1.22849, 0.598186, 0.260417, 1.52494, 0.569124, 0.0708285, 1.43898, 0.59867, 0.034496, -0.683903, 0.59867, 0.0574098, -1.22469, 0.59867, 0.132508, -1.2142, 0.59867, 0.215139, -1.17359, 0.59867, 0.259711, -1.0873, 0.598186, 0.396095, -0.59253, 0.5753, 0.439961, 1.50024, 0.421031, 0.758714, -0.330596, 0.417883, 0.770877, 0.237266, 0.598186, 0.390288, 1.529, 0.5753, 0.429289, 1.55844, 0.567913, 0.228871, 1.55709, 0.337357, 0.254845, 1.60075, -0.000121057, 0.0530154, 1.43898, 0.350435, 0.0271196, 0.790915, 0.569124, 0.034496, 0.790915, -0.598791, 0.034496, -0.683903, -0.000121057, 0.021862, 0.790915, -0.598791, 0.0574098, -1.22469, 0.109829, 0.117598, -1.8555, 0.499861, 0.100648, -1.67479, 0.560042, 0.306872, -1.76582, 0.53316, 0.366197, -1.72961, 0.110677, 0.786572, -0.542106, 0.337357, 0.81129, -0.0256833, 0.499861, 0.419244, -1.70524, 0.337357, 0.791829, 0.244711, 0.337357, 0.469466, 1.57063, 0.337357, 0.444983, 1.59905, -0.337479, 0.254845, 1.60075, -0.569245, 0.0708285, 1.43898, -0.350556, 0.0271196, 0.790915, -0.569245, 0.034496, 0.790915, -0.618529, 0.319035, 0.934742, -0.598791, 0.132508, -1.2142, -0.560163, 0.306872, -1.76582, -0.499982, 0.100648, -1.67479, -0.10995, 0.117598, -1.8555, 0.110677, 0.285214, -1.85652, 0.499861, 0.256101, -1.78342, 0.448518, 0.134626, -1.72216, 0.143976, 0.344617, -1.82504, 0.110677, 0.397586, -1.80068, -0.000121057, 0.798735, -0.542106, -0.000121057, 0.823532, -0.0256833, 0.110677, 0.447259, -1.74348, -0.000121057, 0.459422, -1.74348, -0.000121057, 0.804071, 0.244711, -0.000121057, 0.481708, 1.57063, -0.337479, 0.444983, 1.59905, -0.000121057, 0.457146, 1.59736, -0.575421, 0.429289, 1.55844, -0.568034, 0.228871, 1.55709, -0.598428, 0.260417, 1.52494, -0.61199, 0.333867, 1.22849, -0.598428, 0.40096, 1.47079, -0.598428, 0.448514, 0.790915, -0.598428, 0.396095, -0.59253, -0.598791, 0.259711, -1.0873, -0.598791, 0.215139, -1.17359, -0.533282, 0.366197, -1.72961, -0.499982, 0.419244, -1.70524, -0.110798, 0.397586, -1.80068, -0.144097, 0.344617, -1.82504, -0.110798, 0.285214, -1.85652, -0.499982, 0.256101, -1.78477, -0.448639, 0.134626, -1.72216, -0.000121057, 0.297456, -1.85652, -0.000121057, 0.409828, -1.80068, -0.110798, 0.786572, -0.542106, -0.337479, 0.81129, -0.0256833, -0.110798, 0.447259, -1.74348, -0.337479, 0.791829, 0.244711, -0.337479, 0.469466, 1.57063, -0.575421, 0.439961, 1.50024, -0.598428, 0.390288, 1.529, -0.418125, 0.770877, 0.237266, -0.421152, 0.758714, -0.330596)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lkw51"]
+albedo_texture = ExtResource("1_t23pg")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vlngo"]
+albedo_texture = ExtResource("3_lgk0x")
+
+[node name="one_car" type="VehicleBody3D"]
+collision_layer = 4
+collision_mask = 7
+inertia = Vector3(0, 250, 0)
+script = ExtResource("1_43h40")
+
+[node name="Body" type="CollisionShape3D" parent="."]
+shape = SubResource("ConvexPolygonShape3D_exvgv")
+
+[node name="Car" type="MeshInstance3D" parent="Body"]
+material_override = SubResource("StandardMaterial3D_lkw51")
+mesh = ExtResource("2_03k8y")
+skeleton = NodePath("../..")
+
+[node name="WheelFL" type="VehicleWheel3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.510146, 0.0785183, 1.06655)
+use_as_steering = true
+wheel_rest_length = 0.2
+wheel_friction_slip = 1.4
+suspension_travel = 0.1
+suspension_stiffness = 25.0
+
+[node name="Wheel" type="MeshInstance3D" parent="WheelFL"]
+material_override = SubResource("StandardMaterial3D_vlngo")
+mesh = ExtResource("4_gek4a")
+skeleton = NodePath("../..")
+
+[node name="WheelFR" type="VehicleWheel3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.51, 0.079, 1.067)
+use_as_steering = true
+wheel_rest_length = 0.2
+wheel_friction_slip = 1.4
+suspension_travel = 0.1
+suspension_stiffness = 25.0
+
+[node name="Wheel" type="MeshInstance3D" parent="WheelFR"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_vlngo")
+mesh = ExtResource("4_gek4a")
+skeleton = NodePath("../..")
+
+[node name="WheelRL" type="VehicleWheel3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.510146, 0.0349337, -0.956714)
+use_as_traction = true
+wheel_roll_influence = 0.01
+wheel_rest_length = 0.2
+wheel_friction_slip = 1.1
+suspension_travel = 0.15
+suspension_stiffness = 25.0
+
+[node name="Wheel" type="MeshInstance3D" parent="WheelRL"]
+material_override = SubResource("StandardMaterial3D_vlngo")
+mesh = ExtResource("4_gek4a")
+skeleton = NodePath("../..")
+
+[node name="WheelRR" type="VehicleWheel3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.51, 0.0354154, -0.956265)
+use_as_traction = true
+wheel_roll_influence = 0.01
+wheel_rest_length = 0.2
+wheel_friction_slip = 1.1
+suspension_travel = 0.15
+suspension_stiffness = 25.0
+
+[node name="Wheel" type="MeshInstance3D" parent="WheelRR"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_vlngo")
+mesh = ExtResource("4_gek4a")
+skeleton = NodePath("../..")
+
+[node name="Camera" type="Node3D" parent="."]
+top_level = true
+
+[node name="Camera3D" type="Camera3D" parent="Camera"]
+transform = Transform3D(-1, 8.88178e-16, -8.74228e-08, -1.33594e-08, 0.988255, 0.152813, 8.6396e-08, 0.152813, -0.988255, 0, 1.31432, -3.88734)
+fov = 60.0
+
+[node name="Node3D" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.311009, 0.230005)
