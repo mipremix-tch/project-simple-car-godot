@@ -10,6 +10,8 @@ LEFT AND RIGHT = TURN LEFT AND TURN RIGHT
 
 DOWN = BRAKE/REVERSE
 
+ESC = QUIT THE GAME
+
 ## HOW TO PLAY
 
 1. Clone This Repository. Place it in any directory that easily to access for you.
